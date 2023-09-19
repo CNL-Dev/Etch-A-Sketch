@@ -10,13 +10,22 @@ function createCanvasRows() {
     }
 }
 
-
 // Creates the column divs that will serve as the 
 // canvas for the etch-a-sketch
-function createCanvasColumns() {
-    for(let i = 0; i < 256; i++){
+function createCanvasColumns(parent) {
+    for(let i = 0; i < 16; i++){
         const sketchPart = document.createElement('div');
-        sketchPart.classList.add('sketch');
-        container.appendChild(sketchPart);
+        sketchPart.classList.add('canvas');
+        parent.appendChild(sketchPart);
     }
 }
+
+// Generates the canvas
+function generateCanvas() {
+    createCanvasRows();
+    
+    const canvasRows = document.querySelectorAll('.container-row');
+    canvasRows.forEach(element => createCanvasColumns(element));
+}
+
+generateCanvas();
