@@ -25,7 +25,20 @@ function generateCanvas() {
     createCanvasRows();
     
     const canvasRows = document.querySelectorAll('.container-row');
-    canvasRows.forEach(element => createCanvasColumns(element));
+    canvasRows.forEach((element) => createCanvasColumns(element));
+    onCanvasHover();
+}
+
+// Fills in a canvas spot when a mouseclick 
+// is detected
+function onCanvasHover() {
+    const canvas = document.querySelectorAll('.canvas');
+
+    for(let i = 0; i < canvas.length; i++){
+        canvas[i].addEventListener('mouseenter', (event) => {
+            event.target.classList.add('black');
+        });
+    }
 }
 
 generateCanvas();
