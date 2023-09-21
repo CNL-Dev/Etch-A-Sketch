@@ -22,13 +22,13 @@ body {
     right: 0;
 }
 
-.container {
+.canvas-container {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.container-row {
+.canvas-container-row {
     display: flex;
     flex-direction: row;
 }

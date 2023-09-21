@@ -1,11 +1,11 @@
-const container = document.querySelector('.container');
+const container = document.querySelector('.canvas-container');
 
 // Creates the horizontal rows that will contain
 // some of our divs
 function createCanvasRows() {
     for(let i = 0; i < 16; i++){
         const containerRow = document.createElement('div');
-        containerRow.classList.add('container-row');
+        containerRow.classList.add('canvas-container-row');
         container.appendChild(containerRow);
     }
 }
@@ -24,18 +24,18 @@ function createCanvasColumns(parent) {
 function generateCanvas() {
     createCanvasRows();
     
-    const canvasRows = document.querySelectorAll('.container-row');
+    const canvasRows = document.querySelectorAll('.canvas-container-row');
     canvasRows.forEach((element) => createCanvasColumns(element));
     onCanvasHover();
 }
 
-// Fills in a canvas spot when a mouseclick 
+// Fills in a canvas spot when the mouse 
 // is detected
 function onCanvasHover() {
     const canvas = document.querySelectorAll('.canvas');
 
     for(let i = 0; i < canvas.length; i++){
-        canvas[i].addEventListener('mouseenter', (event) => {
+        canvas[i].addEventListener('mousemove', (event) => {
             event.target.classList.add('black');
         });
     }
