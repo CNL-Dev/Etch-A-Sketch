@@ -44,3 +44,9 @@ body {
 .black {
     background-color: black;
 }
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
