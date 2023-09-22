@@ -14,6 +14,7 @@ function createCanvas(parent, gridSize) {
 function generateCanvas(gridSize) {
     // We can generate a grid size between 1 and 100
     if(gridSize > 0 && gridSize < 101) {
+        canvasContainer.setAttribute('style', `grid-template-columns: repeat(${gridSize}, 2fr); grid-template-rows: repeat(${gridSize}, 2fr);`);
         createCanvas(canvasContainer, gridSize);
 
         onCanvasHover();
