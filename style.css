@@ -13,6 +13,12 @@ button {
     background-color: #C0C0C0;
 }
 
+img {
+    height: 25px;
+    width: auto;
+    padding: 5px;
+}
+
 .header {
     text-align: center;
     font-size: 50px;
@@ -23,6 +29,8 @@ button {
 .footer {
     text-align: center;
     padding: 12px;
+    display: flex;
+    flex-direction: column;
 }
 
 .canvas-container {
