@@ -1,23 +1,12 @@
 const canvasContainer = document.querySelector('.canvas-container');
 const resizeGridButton = document.querySelector('.resize-canvas-button');
 
-// Creates the horizontal rows that will contain
-// some of our divs
-function createCanvasRows(gridSize) {
-    for(let i = 0; i < gridSize; i++) {
-        const canvasContainerRow = document.createElement('div');
-        canvasContainerRow.classList.add('canvas-container-row');
-        canvasContainer.appendChild(canvasContainerRow);
-    }
-}
-
-// Creates the column divs that will serve as the 
-// canvas for the etch-a-sketch
-function createCanvasColumns(parent, gridSize) {
-    for(let i = 0; i < gridSize; i++) {
-        const sketchPart = document.createElement('div');
-        sketchPart.classList.add('canvas');
-        parent.appendChild(sketchPart);
+// Creates a x * x canvas via user input
+function createCanvas(parent, gridSize) {
+    for(let i = 0; i < gridSize * gridSize; i++) {
+        const canvas = document.createElement('div');
+        canvas.classList.add('canvas');
+        parent.appendChild(canvas);
     }
 }
 
@@ -25,10 +14,8 @@ function createCanvasColumns(parent, gridSize) {
 function generateCanvas(gridSize) {
     // We can generate a grid size between 1 and 100
     if(gridSize > 0 && gridSize < 101) {
-        createCanvasRows(gridSize);
-    
-        const canvasRows = document.querySelectorAll('.canvas-container-row');
-        canvasRows.forEach((element) => createCanvasColumns(element, gridSize));
+        createCanvas(canvasContainer, gridSize);
+
         onCanvasHover();
     }   
 }
