@@ -1,5 +1,6 @@
 const canvasContainer = document.querySelector('.canvas-container');
 const resizeGridButton = document.querySelector('.resize-canvas-button');
+const clearCanvasButton = document.querySelector('.clear-canvas-button');
 
 // Creates a x * x canvas via user input
 function createCanvas(parent, gridSize) {
@@ -18,7 +19,9 @@ function generateCanvas(gridSize) {
         createCanvas(canvasContainer, gridSize);
 
         onCanvasHover();
-    }   
+    }else {
+        alert("Invalid input!");
+    }
 }
 
 // Removes the canvas
@@ -40,8 +43,15 @@ function onCanvasHover() {
     }
 }
 
-// Default canvas for when the site is first loaded
-generateCanvas(16);
+// Clears the current canvas
+function clearCanvas() {
+    const filledCanvas = document.querySelectorAll('.black');
+    for(let i = 0; i < filledCanvas.length; i++) {
+        filledCanvas[i].classList.remove('black');
+    }
+}
+
+clearCanvasButton.addEventListener('click', clearCanvas);
 
 resizeGridButton.addEventListener('click', () => {
     let input = prompt("Input a number between 1 and 100: ");
@@ -49,3 +59,6 @@ resizeGridButton.addEventListener('click', () => {
     removeCanvas();
     generateCanvas(input);
 });
+
+// Default canvas for when the site is first loaded
+generateCanvas(16);
