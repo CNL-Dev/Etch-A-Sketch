@@ -20,7 +20,8 @@ function generateCanvas(gridSize) {
 
         onCanvasHover();
     }else {
-        alert("Invalid input!");
+        alert("Invalid input! A 16x16 canvas has been generated!");
+        generateCanvas(16);
     }
 }
 
